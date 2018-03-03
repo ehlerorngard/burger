@@ -1,32 +1,33 @@
 
-<div class="jumbotron">
-	<img src="/assets/img/veggieBurger.jpg">
+<div class="row justify-content-center">
+	<img src="/assets/img/veggieBurger.jpg" width="200" height="200">
 </div>
 
-<div class="row">
+<div class="row justify-content-center">
 	<h1>EAT Duh BURGuh</h1>
 </div>
 
 <div class="row">
-	<div class="col-4" id="undevouredColumn">
+	<div class="col-2"></div>
+	<div class="col-4 m-4" id="undevouredColumn">
 		{{#each burger}} <!--for EACH entry in table "burger"-->
 			{{#unless devoured}} <!--if burger is not devoured-->
-				{{> devoured=true}}
-			{{/if}}
+				{{> visibleBurgers}}
+			{{/unless}}
 		{{/each}}
 	</div>
-	<div class="col-4" id="devouredColumn">
+	<div class="col-4 m-4" id="devouredColumn">
 		{{#each burger}}
-			{{#if }}
-				{{> }}
+			{{#if devoured}}
+				{{> visibleBurgers}}
 			{{/if}}
 		{{/each}}
 	</div>
 </div>
-<div class="row">
+<div class="row justify-content-center" id="bottomRow">
 	<form class="form">
 		<label for="burgerToBe">type the name of a burger you'd like to eat:</label>
-		<input type="text" id="burgerToBe" name="burgerName">
-		<button type="submit">submit</button>
+		<input type="text" id="burgerToBe" name="burgerName" class="form-control m-2">
+		<button type="submit" class="btn btn-warning">submit</button>
 	</form>
 </div>

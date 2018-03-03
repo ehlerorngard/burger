@@ -1,6 +1,13 @@
-<div class="row">
-	{{burgerName}}
-	{{#if devoured}}
-		<button class="devourButton" data-id="{{id}}" data-devouredStatus="{{devoured}}">devour it!</button>
-	{{/if}}
+<div class="row m-2 burgerRow">
+	<div class="col-8">
+		{{burger_name}}
+	</div>
+	<div class="col-4">
+		{{#unless devoured}}
+			<button class="devourButton btn btn-dark" data-id="{{id}}" data-devouredStatus="{{devoured}}">devour it!</button>
+		{{/unless}}
+		{{#if devoured}}
+			<span id="deja">already eaten...</span>
+		{{/if}}
+	</div>
 </div>

@@ -1,0 +1,22 @@
+.jumbotron {
+	background-color: white;
+}
+h1 {
+	font-family: "Georgia", sans;
+	color: darkgray;
+}
+.burgerRow {
+	background-color: lightgray;
+	border-radius: 5px;
+	padding: 6px;
+	font-weight: 700;
+}
+
+#deja {
+	color: gray;
+	font-style: italic;
+}
+
+#bottomRow {
+	margin-bottom: 10%;
+}
