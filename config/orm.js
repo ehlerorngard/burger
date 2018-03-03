@@ -1,5 +1,13 @@
 var connection = require("./connection.js");
 
+//=========================
+//==== NEED ===============
+//======== selectAll() ====
+//======== insertOne() ====
+//======== updateOne() ====
+//=========================
+
+
 function printQuestionMarks(num) {
 	var arr = [];
 	for (var i = 0; i < num; i++) {
@@ -24,7 +32,7 @@ function convertObjSQL(ob) {
 
 
 var orm = {
-	all: function(tableInput, callback) {
+	selectAll: function(tableInput, callback) {
 		var queryString = "SELECT * FROM " + tableInput + ";";
 		connection.query(queryString, function(err, result) {
 			if (err) {
@@ -49,9 +57,10 @@ var orm = {
 			callback(result);
 		});
 	},
-	update: function(table, colvalObj, condition, callback) {
-		var queryString = "UPDATE " + table + " SET " + convertObjectSQL(colvalObj);
-		queryString += " WHERE " + condition + ";";
+	devour: function(table, colvalObj, condition, callback) {
+		var queryString = "UPDATE " + table + " SET ";
+		queryString += convertObjSQL(colvalObj);
+		queryString += " WHERE " + condition;
 
 		console.log(queryString);
 		connection.query(queryString, function(err, result) {

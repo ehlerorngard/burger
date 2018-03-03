@@ -1,0 +1,32 @@
+
+<div class="jumbotron">
+	<img src="/assets/img/veggieBurger.jpg">
+</div>
+
+<div class="row">
+	<h1>EAT Duh BURGuh</h1>
+</div>
+
+<div class="row">
+	<div class="col-4" id="undevouredColumn">
+		{{#each burger}} <!--for EACH entry in table "burger"-->
+			{{#unless devoured}} <!--if burger is not devoured-->
+				{{> devoured=true}}
+			{{/if}}
+		{{/each}}
+	</div>
+	<div class="col-4" id="devouredColumn">
+		{{#each burger}}
+			{{#if }}
+				{{> }}
+			{{/if}}
+		{{/each}}
+	</div>
+</div>
+<div class="row">
+	<form class="form">
+		<label for="burgerToBe">type the name of a burger you'd like to eat:</label>
+		<input type="text" id="burgerToBe" name="burgerName">
+		<button type="submit">submit</button>
+	</form>
+</div>
