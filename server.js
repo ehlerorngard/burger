@@ -2,7 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 require("path");
 
-var port = process.env.port || 3001;
+var PORT = process.env.PORT || 3001;
 
 var app = express();
 
@@ -18,6 +18,6 @@ app.set("view engine", "handlebars");
 var routes = require("./controllers/burgers_controller.js");
 app.use("/", routes);
 
-app.listen(port, function() {
-	console.log("Listening on port " + port);
+app.listen(PORT, function() {
+	console.log("Listening on port " + PORT);
 });
