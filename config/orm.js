@@ -30,7 +30,6 @@ function convertObjSQL(ob) {
 	return arr.toString();
 }
 
-
 var orm = {
 	selectAll: function(tableInput, callback) {
 		var queryString = "SELECT * FROM " + tableInput + ";";
@@ -42,10 +41,10 @@ var orm = {
 		});
 	},
 	create: function(table, cols, vals, callback) {
-		var queryString = "INSERT INTO " + table + "(";
+		var queryString = "INSERT INTO " + table + " (";
 		queryString += cols.toString();
-		queryString += ") VALUES (";
-		queryString += printQuestionMarks(vals.length);
+		queryString += ") VALUES (?";
+		// queryString += printQuestionMarks(vals.length);
 		queryString += ");";
 
 		console.log(queryString);

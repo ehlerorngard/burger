@@ -7,7 +7,7 @@ var burger = require("../models/burger.js");
 router.get("/", function(req, res) {
 	burger.selectAll(function(data) {
 		var objectlebars = {
-			burger: data  // <––––this is the table "burger"
+			burger: data  // <––––this is the table "burger" (...right??)
 		};
 		console.log(objectlebars);
 		res.render("index", objectlebars);
@@ -15,7 +15,7 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
-	burger.create("name", req.body.name, function(result) {
+	burger.create("burger_name", req.body.burgerName, function(result) {
 			res.json({ id: result.insertId });
 		});
 });
@@ -24,9 +24,10 @@ router.put("/", function(req, res) {
 	var condition = "id = " + req.body.id;
 
 	console.log("the condition is " + condition);
-
-	burger.devour({ id: req.body.id }, condition, function(result) {
+		// "devoured" is the actual column in the table
+	burger.devour({ devoured: req.body.devoured }, condition, function(result) {
 		res.send("burger devoured");
 	});
 });
 
+module.exports = router;
